@@ -12,7 +12,21 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('absenreports', function (Blueprint $table) {
-            $table->id();
+            $table->integer('pegawai_id');
+            $table->string('Pin', 32)->index();
+            $table->string('Nip', 30)->nullable();
+            $table->string('Nama', 50)->default('')->index();
+            $table->string('Jabatan', 50)->default('')->index();
+            $table->string('Departemen', 50)->default('')->index();
+            $table->string('Divisi', 50)->default('');
+            $table->string('Tanggal', 10)->default('')->index();  
+            $table->string('Bulan', 2)->default('')->index();     
+            $table->string('Hari', 10)->default('')->index();     
+            $table->string('Scan_awal', 50)->default('')->index();
+            $table->string('Scan_akhir', 50)->default('')->index();
+            $table->string('Status', 50)->default('Tidak Hadir')->index();
+            $table->string('Jam_Kerja', 50)->default('');
+            $table->timestamps();
             $table->timestamps();
         });
     }

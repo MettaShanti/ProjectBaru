@@ -12,7 +12,20 @@ class AbsenreportController extends Controller
      */
     public function index()
     {
-        //
+        //panggil model absenreport
+        $result = Absenreport::all();
+        //dd($result); untuk menampilkan data db
+
+        // kirim data $result ke view absenreport/index.blade.php
+        return view('laporan.index')->with('absenreport', $result);
+    }
+
+    public function Cetak()
+    {
+        $cetak = Absenreport::all(); // Menggunakan all() untuk mengambil semua data
+        return view('cetak.index')->with('absenreport', $cetak);
+        // $result = Absenreport::get();
+        // return view('Cetak.index')->with('absenreport', $result);
     }
 
     /**
@@ -20,7 +33,7 @@ class AbsenreportController extends Controller
      */
     public function create()
     {
-        //
+        return view('attlog.create');
     }
 
     /**

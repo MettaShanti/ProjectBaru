@@ -30,8 +30,15 @@
     <nav class="sidebar sidebar-offcanvas" id="sidebar">
       <ul class="nav">
         <li class="nav-item sidebar-category">
-          <p>Navigation</p>
+          <p></p>
           <span></span>
+          <li class="nav-item">
+          <a class="nav-link" href="{{ route('dashboard')}}">
+            <i class="mdi mdi-view-quilt menu-icon"></i>
+            <span class="menu-title">Dashboard</span>
+            <!-- <div class="badge badge-info badge-pill">2</div> -->
+          </a>
+        </li>
         </li>
         <li class="nav-item">
         <a class="nav-link" href="{{route('attlog.index')}}">
@@ -68,6 +75,16 @@
             <i class="mdi mdi-view-quilt menu-icon"></i>
             <span class="menu-title">Laporan</span>
           </a>
+        </li>
+        <li class="nav-item">
+        <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                      <x-dropdown-link :href="route('logout')"
+                          onclick="event.preventDefault();
+                          this.closest('form').submit();" class="dropdown-item">
+                        <i class="mdi mdi-logout text-primary"></i> {{ __('Log Out') }}
+                      </x-dropdown-link>
+                  </form>
         </li>
       </ul>
     </nav>
@@ -262,20 +279,20 @@
   <!-- container-scroller -->
 
   <!-- base:js -->
-  <!-- <script src="vendors/js/vendor.bundle.base.js"></script> -->
+  <script src="{{ url('vendors/js/vendor.bundle.base.js')}}"></script>
   <!-- endinject -->
   <!-- Plugin js for this page-->
-  <!-- <script src="vendors/chart.js/Chart.min.js"></script> -->
+  <script src="{{url('vendors/chart.js/Chart.min.js')}}"></script>
   <!-- End plugin js for this page-->
   <!-- inject:js -->
-  <!-- <script src="js/off-canvas.js"></script>
-  <script src="js/hoverable-collapse.js"></script>
-  <script src="js/template.js"></script> -->
+  <script src="{{ url('js/off-canvas.js')}}"></script> 
+  <script src="{{ url('js/hoverable-collapse.js')}}"></script>
+  <script src="{{ url('js/template.js')}}"></script> 
   <!-- endinject -->
   <!-- plugin js for this page -->
   <!-- End plugin js for this page -->
   <!-- Custom js for this page-->
-  <!-- <script src="js/dashboard.js"></script> -->
+  <script src="{{ url('js/dashboard.js')}}"></script>
   <!-- End custom js for this page-->
 
   <!-- tambah  javascript ini-->

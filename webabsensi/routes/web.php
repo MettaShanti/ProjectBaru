@@ -22,11 +22,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::resource('pegawai', PegawaiController::class)->middleware(['auth', 'verified']);
-Route::resource('pembagian1', Pembagian1Controller::class)->middleware(['auth', 'verified']);
-Route::resource('pembagian2', Pembagian2Controller::class)->middleware(['auth', 'verified']);
-Route::resource('pembagian3', Pembagian3Controller::class)->middleware(['auth', 'verified']);
-Route::resource('attlog', AttlogController::class)->middleware(['auth', 'verified']);
-Route::resource('absenreport', AbsenreportController::class)->middleware(['auth', 'verified']);
+Route::resource('pegawai', PegawaiController::class)->middleware(['auth', 'verified', 'Ceklevel:admin']);
+Route::resource('pembagian1', Pembagian1Controller::class)->middleware(['auth', 'verified', 'Ceklevel:admin']);
+Route::resource('pembagian2', Pembagian2Controller::class)->middleware(['auth', 'verified', 'Ceklevel:admin']);
+Route::resource('pembagian3', Pembagian3Controller::class)->middleware(['auth', 'verified', 'Ceklevel:admin']);
+Route::resource('attlog', AttlogController::class)->middleware(['auth', 'verified', 'Ceklevel:user']);
+Route::resource('absenreport', AbsenreportController::class)->middleware(['auth', 'verified', 'Ceklevel:admin']);
 
 require __DIR__.'/auth.php';

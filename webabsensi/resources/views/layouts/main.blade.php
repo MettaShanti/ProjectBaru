@@ -78,14 +78,24 @@
         </li>
         <li class="nav-item">
         <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                      <x-dropdown-link :href="route('logout')"
-                          onclick="event.preventDefault();
-                          this.closest('form').submit();" class="dropdown-item">
-                        <i class="mdi mdi-logout text-primary"></i> {{ __('Log Out') }}
-                      </x-dropdown-link>
-                  </form>
+          @csrf
+          <a href="{{ route('logout') }}" class="nav-link"
+            onclick="event.preventDefault(); this.closest('form').submit();">
+          <i class="mdi mdi-logout menu-icon text-primary"></i>
+          <span class="menu-title" style="font-weight: bold; color: white;">Log Out</span>
+          </a>
+          </form>
         </li>
+        <!-- <li class="nav-item">
+        <form method="POST" action="{{ route('logout') }}">
+          @csrf
+          <x-dropdown-link :href="route('logout')"
+              onclick="event.preventDefault();
+              this.closest('form').submit();" class="dropdown-item">
+              <i class="mdi mdi-logout text-primary"></i> {{ __('Log Out') }}
+          </x-dropdown-link>
+          </form>
+        </li> -->
       </ul>
     </nav>
     <!-- partial -->
@@ -98,7 +108,7 @@
           </button>
           <div class="navbar-brand-wrapper">
             <a class="navbar-brand brand-logo" href="index.html"><img src="logo.jpg" alt="logo"/></a>
-            <a class="navbar-brand brand-logo-mini" href="index.html"><img src="logo-mini.jpg" alt="logo"/></a>
+            <a class="navbar-brand brand-logo-mini" href="index.html"><img src="logo.jpg" alt="logo"/></a>
           </div>
           {{-- user login --}}
           <h4 class="font-weight-bold mb-0 d-none d-md-block mt-1">Welcome back, {{ Auth::user()->name }}</h4>
@@ -229,7 +239,7 @@
                       <x-dropdown-link :href="route('logout')"
                           onclick="event.preventDefault();
                           this.closest('form').submit();" class="dropdown-item">
-                        <i class="mdi mdi-logout text-primary"></i> {{ __('Log Out') }}
+                        <i class="mdi mdi-logout text-primary">Log Out</i> {{ __('Log Out') }}
                       </x-dropdown-link>
                   </form>
               </div>

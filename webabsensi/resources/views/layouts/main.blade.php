@@ -234,17 +234,17 @@
                   Settings
                 </a>
                 <!-- Authentication -->
-                    <form method="POST" action="{{ route('logout') }}">
+                    <!-- <form method="POST" action="{{ route('logout') }}">
                         @csrf
                       <x-dropdown-link :href="route('logout')"
                           onclick="event.preventDefault();
                           this.closest('form').submit();" class="dropdown-item">
                         <i class="mdi mdi-logout text-primary">Log Out</i> {{ __('Log Out') }}
                       </x-dropdown-link>
-                  </form>
+                  </form> -->
               </div>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a href="#" class="nav-link icon-link">
                 <i class="mdi mdi-plus-circle-outline"></i>
               </a>
@@ -258,7 +258,7 @@
               <a href="#" class="nav-link icon-link">
                 <i class="mdi mdi-clock-outline"></i>
               </a>
-            </li>
+            </li> -->
           </ul>
         </div>
       </nav>

@@ -9,7 +9,7 @@ class Pdfcontroller extends Controller
 {
     public function generatePdf()
 {
-    $result = Absenreport::get();
+    $result = Absenreport::limit(50)->get();
     $data = [
         'title' => 'Laporan Absensi',  
         'date' => date('m/d/Y'),       

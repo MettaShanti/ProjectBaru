@@ -20,13 +20,13 @@ class AbsenreportController extends Controller
         return view('laporan.index')->with('absenreport', $result);
     }
 
-    public function Cetak()
-    {
-        $cetak = Absenreport::all(); // Menggunakan all() untuk mengambil semua data
-        return view('cetak.index')->with('absenreport', $cetak);
-        // $result = Absenreport::get();
-        // return view('Cetak.index')->with('absenreport', $result);
-    }
+    // public function Cetak()
+    // {
+    //     $cetak = Absenreport::all(); // Menggunakan all() untuk mengambil semua data
+    //     return view('cetak.index')->with('absenreport', $cetak);
+    //     // $result = Absenreport::get();
+    //     // return view('Cetak.index')->with('absenreport', $result);
+    // }
 
     /**
      * Show the form for creating a new resource.

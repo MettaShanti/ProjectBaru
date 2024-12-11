@@ -2,7 +2,7 @@
 
 @section('content')
     <h4>Laporan</h4>
-    <!-- <a href="{{route('absenreport.create')}}" class="btn btn-primary">TAMBAH</a> -->
+    <a href="{{route('absenreport.create')}}" class="btn btn-primary">TAMBAH</a>
     <table id="example" class="display nowrap" style="width:100%">
         <thead>
             <tr>

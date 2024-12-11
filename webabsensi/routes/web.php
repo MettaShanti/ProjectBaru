@@ -30,6 +30,6 @@ Route::resource('attlog', AttlogController::class)->middleware(['auth', 'verifie
 Route::resource('absenreport', AbsenreportController::class)->middleware(['auth', 'verified', 'Ceklevel:admin']);
 
 // cetak 
-Route::get('generate-pdf', [App\Http\Controllers\Pdfcontroller::class,'generatePdf']);
+Route::get('generate-pdf', [App\Http\Controllers\Pdfcontroller::class,'generatepdf']);
 
 require __DIR__.'/auth.php';

@@ -29,4 +29,7 @@ Route::resource('pembagian3', Pembagian3Controller::class)->middleware(['auth', 
 Route::resource('attlog', AttlogController::class)->middleware(['auth', 'verified', 'Ceklevel:user']);
 Route::resource('absenreport', AbsenreportController::class)->middleware(['auth', 'verified', 'Ceklevel:admin']);
 
+// cetak 
+Route::get('generate-pdf', [App\Http\Controllers\Pdfcontroller::class,'generatePdf']);
+
 require __DIR__.'/auth.php';

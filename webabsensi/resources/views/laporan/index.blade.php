@@ -2,7 +2,12 @@
 
 @section('content')
     <h4>Laporan</h4>
-    <a href="{{route('laporan.generatepdf')}}" class="btn btn-primary">Cetak</a>
+    <br>
+    <form method="post">
+        <input type="date" name="tgl-mulai" class="form-control">
+        <input type="date" name="tgl-selesai" class="form-control">
+        <button type="submit" name="filter-tgl" class="btn btn-info"></button>
+    </form>
     <table id="example" class="display nowrap" style="width:100%">
         <thead>
             <tr>

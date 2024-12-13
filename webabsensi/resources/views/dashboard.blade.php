@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-{{-- html --}}
+<!-- {{-- html --}}
     {{-- copasus hightchart html--}}
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -131,6 +131,6 @@
             }]
         });
     });
-</script>
+</script> -->
 
 @endsection

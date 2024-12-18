@@ -31,6 +31,7 @@ class AbsenreportController extends Controller
     // filter 
     public function filter(Request $request)
 {
+    //DD:($request)
     // Validasi input tanggal
     $request->validate([
         'tgl_mulai' => 'required|date',

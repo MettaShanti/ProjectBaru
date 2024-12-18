@@ -30,10 +30,4 @@ Route::resource('pembagian3', Pembagian3Controller::class)->middleware(['auth', 
 Route::resource('attlog', AttlogController::class)->middleware(['auth', 'verified', 'Ceklevel:user']);
 Route::resource('absenreport', AbsenreportController::class)->middleware(['auth', 'verified', 'Ceklevel:admin']);
 
-// filter tanggal 
-Route::post('/absenreport/filter', [AbsenreportController::class, 'filter'])->name('absenreport.filter');
-// cetak ke 1
-//Route::get('generate-pdf', [App\Http\Controllers\PdfController::class,'generatepdf']);
-// cetak ke 2
-Route::post('/absenreport/cetak-pdf', [PdfController::class, 'generatePdf'])->name('absenreport.cetak-pdf');
 require __DIR__.'/auth.php';

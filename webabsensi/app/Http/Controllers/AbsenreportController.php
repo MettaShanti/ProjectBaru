@@ -28,26 +28,6 @@ class AbsenreportController extends Controller
         return view('attlog.create');
     }
 
-    // filter 
-    public function filter(Request $request)
-{
-    // Validasi input tanggal
-    $request->validate([
-        'tgl_mulai' => 'required|date',
-        'tgl_selesai' => 'required|date|after_or_equal:tgl_mulai',
-    ]);
-
-    $mulai = $request->input('tgl_mulai');
-    $selesai = $request->input('tgl_selesai');
-
-    // Ambil data berdasarkan rentang tanggal pada `scan_awal` dan `scan_akhir`
-    $absenreport = Absenreport::whereBetween('scan_awal', [$mulai, $selesai])
-                    ->orWhereBetween('scan_akhir', [$mulai, $selesai])
-                    ->get();
-
-    // Kirim data hasil filter ke view
-    return view('laporan.index', compact('absenreport'));
-}
     /**
      * Store a newly created resource in storage.
      */

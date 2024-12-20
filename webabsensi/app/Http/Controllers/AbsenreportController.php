@@ -32,7 +32,7 @@ class AbsenreportController extends Controller
     public function filter(Request $request)
 {
     $result = Absenreport::all();
-    dd($result);
+    // dd($request);
 
     // Validasi input tanggal
     $request->validate([
@@ -46,12 +46,12 @@ class AbsenreportController extends Controller
 
     // Ambil data berdasarkan rentang tanggal pada `scan_awal` dan `scan_akhir`
     $absenreport = Absenreport::where(function ($query) use ($mulai, $selesai) {
-                        $query->whereBetween('scan_awal', [$mulai, $selesai])
-                              ->orWhereBetween('scan_akhir', [$mulai, $selesai]);
+                        $query->whereBetween('Tanggal', [$mulai, $selesai]);
+                              
                     })
-                    ->orderBy('scan_awal', 'asc') // Tambahkan sorting berdasarkan scan_awal
+                    ->orderBy('Tanggal', 'asc') // Tambahkan sorting berdasarkan scan_awal
                     ->get();
-
+                    //dd($absenreport);
     // Kirim data hasil filter ke view 'laporan.index'
     return view('laporan.index', ['absenreport' => $absenreport]);
 }

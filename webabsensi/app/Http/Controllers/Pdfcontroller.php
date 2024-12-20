@@ -10,6 +10,8 @@ class PdfController extends Controller
 {
     public function generatePdf(Request $request)
     {
+        $result = Absenreport::all();
+       // dd($result);
         // Validasi input tanggal
         $request->validate([
             'tgl_mulai' => 'required|date',
@@ -20,15 +22,17 @@ class PdfController extends Controller
         $selesai = $request->input('tgl_selesai');
 
         // Ambil data berdasarkan range tanggal
-        $result = Absenreport::whereBetween('scan_awal', [$mulai, $selesai])
-                    ->orWhereBetween('scan_akhir', [$mulai, $selesai])
-                    ->get();
+        $result = Absenreport::whereBetween('Tanggal', [$mulai, $selesai])
+                      ->limit(10) // Batasi hasil ke 10 baris
+                      ->get();
 
+//dd($result);
         $data = [
             'title' => 'Laporan Absensi',
             'date' => date('d/m/Y'),
             'absenreport' => $result
         ];
+        // dd($data);
 
         // Load view ke PDF
         $pdf = Pdf::loadView('generatepdf', $data);

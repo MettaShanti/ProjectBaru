@@ -31,24 +31,31 @@ class AbsenreportController extends Controller
     // filter 
     public function filter(Request $request)
 {
-    //DD:($request)
+    $result = Absenreport::all();
+    dd($result);
+
     // Validasi input tanggal
     $request->validate([
         'tgl_mulai' => 'required|date',
         'tgl_selesai' => 'required|date|after_or_equal:tgl_mulai',
     ]);
 
+    // Ambil input tanggal dari request
     $mulai = $request->input('tgl_mulai');
     $selesai = $request->input('tgl_selesai');
 
     // Ambil data berdasarkan rentang tanggal pada `scan_awal` dan `scan_akhir`
-    $absenreport = Absenreport::whereBetween('scan_awal', [$mulai, $selesai])
-                    ->orWhereBetween('scan_akhir', [$mulai, $selesai])
+    $absenreport = Absenreport::where(function ($query) use ($mulai, $selesai) {
+                        $query->whereBetween('scan_awal', [$mulai, $selesai])
+                              ->orWhereBetween('scan_akhir', [$mulai, $selesai]);
+                    })
+                    ->orderBy('scan_awal', 'asc') // Tambahkan sorting berdasarkan scan_awal
                     ->get();
 
-    // Kirim data hasil filter ke view
-    return view('laporan.index', compact('absenreport'));
+    // Kirim data hasil filter ke view 'laporan.index'
+    return view('laporan.index', ['absenreport' => $absenreport]);
 }
+
 
     /**
      * Store a newly created resource in storage.

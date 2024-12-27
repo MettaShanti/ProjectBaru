@@ -62,7 +62,6 @@
                   <div class="form-check">
                     <label class="form-check-label text-muted">
                       <input type="checkbox" class="form-check-input">
-                      Keep me signed in
                     </label>
                   </div>
                   <a href="#" class="auth-link text-black"></a>
@@ -73,7 +72,7 @@
                 </div>
                 <div class="text-center mt-4 font-weight-light">
                     {{-- {{ route('register')}} --}}
-                  Don't have an account? <a href="{{ route('register')}}" class="text-primary">Create</a>
+                  <!-- Don't have an account? <a href="{{ route('register')}}" class="text-primary">Create</a> -->
                 </div>
               </form>
             </div>

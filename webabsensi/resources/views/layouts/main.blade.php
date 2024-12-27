@@ -222,28 +222,13 @@
             </li>
           </ul>
           <ul class="navbar-nav navbar-nav-right">
-            <li class="nav-item nav-profile dropdown">
-              <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                <img src="images/faces/face5.jpg" alt="profile"/>
-                {{-- user login --}}
-                <span class="nav-profile-name">{{ Auth::user()->name }}</span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                <a class="dropdown-item">
-                  <i class="mdi mdi-settings text-primary"></i>
-                  Settings
-                </a>
-                <!-- Authentication -->
-                    <!-- <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                      <x-dropdown-link :href="route('logout')"
-                          onclick="event.preventDefault();
-                          this.closest('form').submit();" class="dropdown-item">
-                        <i class="mdi mdi-logout text-primary">Log Out</i> {{ __('Log Out') }}
-                      </x-dropdown-link>
-                  </form> -->
-              </div>
-            </li>
+          <li class="nav-item nav-profile">
+          <a class="nav-link">
+          <img src="images/faces/face5.jpg" alt="profile"/>
+          {{-- user login --}}
+            <span class="nav-profile-name">{{ Auth::user()->name }}</span>
+          </a>
+          </li>
             <!-- <li class="nav-item">
               <a href="#" class="nav-link icon-link">
                 <i class="mdi mdi-plus-circle-outline"></i>

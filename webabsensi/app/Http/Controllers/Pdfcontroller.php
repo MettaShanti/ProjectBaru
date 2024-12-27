@@ -23,7 +23,7 @@ class PdfController extends Controller
 
         // Ambil data berdasarkan range tanggal
         $result = Absenreport::whereBetween('Tanggal', [$mulai, $selesai])
-                      ->limit(10) // Batasi hasil ke 10 baris
+                      ->limit(200) 
                       ->get();
 
 //dd($result);

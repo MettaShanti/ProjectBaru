@@ -9,7 +9,7 @@
     @error('pembagian3_id')
         <span class="text-danger">({{ $message }})</span>
     @enderror
-    <input type="numer" name="pembagian3_id" id="" class="form-control mb-2">
+    <input type="number" name="pembagian3_id" id="" class="form-control mb-2">
     
     Nama Divisi 
     @error('pembagian3_nama')

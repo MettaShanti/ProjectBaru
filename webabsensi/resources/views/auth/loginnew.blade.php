@@ -1,22 +1,21 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Absensi</title>
-  <!-- base:css -->
   <link rel="stylesheet" href="../../vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
-  <!-- endinject -->
-  <!-- plugin css for this page -->
-  <!-- End plugin css for this page -->
-  <!-- inject:css -->
   <link rel="stylesheet" href="../../css/style.css">
-  <!-- endinject -->
   <link rel="shortcut icon" href="../../images/logo.svg" />
+  <style>
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+  </style>
 </head>
 
 <body>
@@ -31,8 +30,7 @@
               </div>
               <h4>Welcome back!</h4>
               <h6 class="font-weight-light">Happy to see you again!</h6>
-              {{-- ditambahkan method="POST" action="{{ route('login') }}" --}}
-              <form class="pt-3" method="POST" action="{{ route('login') }}">
+              <form id="loginForm" class="pt-3" method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="form-group">
                   <label for="exampleInputEmail">Username</label>
@@ -42,9 +40,9 @@
                         <i class="mdi mdi-account-outline text-primary"></i>
                       </span>
                     </div>
-                    {{-- name="email--}}
                     <input type="text" class="form-control form-control-lg border-left-0" id="exampleInputEmail" placeholder="Username" name="email">
                   </div>
+                  <div id="usernameError" class="error"></div>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword">Password</label>
@@ -54,25 +52,12 @@
                         <i class="mdi mdi-lock-outline text-primary"></i>
                       </span>
                     </div>
-                    {{-- name="password"--}}
                     <input type="password" class="form-control form-control-lg border-left-0" id="exampleInputPassword" placeholder="Password" name="password">                        
                   </div>
-                </div>
-                <div class="my-2 d-flex justify-content-between align-items-center">
-                  <div class="form-check">
-                    <label class="form-check-label text-muted">
-                      <input type="checkbox" class="form-check-input">
-                    </label>
-                  </div>
-                  <a href="#" class="auth-link text-black"></a>
+                  <div id="passwordError" class="error"></div>
                 </div>
                 <div class="my-3">
-                    {{-- button type="submit" --}}
-                  <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="../../index.html">LOGIN</button>
-                </div>
-                <div class="text-center mt-4 font-weight-light">
-                    {{-- {{ route('register')}} --}}
-                  <!-- Don't have an account? <a href="{{ route('register')}}" class="text-primary">Create</a> -->
+                  <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">LOGIN</button>
                 </div>
               </form>
             </div>
@@ -82,19 +67,41 @@
           </div>
         </div>
       </div>
-      <!-- content-wrapper ends -->
     </div>
-    <!-- page-body-wrapper ends -->
   </div>
-  <!-- container-scroller -->
-  <!-- base:js -->
-  <script src="../../vendors/js/vendor.bundle.base.js"></script>
-  <!-- endinject -->
-  <!-- inject:js -->
-  <script src="../../js/off-canvas.js"></script>
-  <script src="../../js/hoverable-collapse.js"></script>
-  <script src="../../js/template.js"></script>
-  <!-- endinject -->
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function (event) {
+      let isValid = true;
+
+      const username = document.getElementById('exampleInputEmail').value.trim();
+      const password = document.getElementById('exampleInputPassword').value.trim();
+
+      const usernameError = document.getElementById('usernameError');
+      const passwordError = document.getElementById('passwordError');
+
+      // Reset error messages
+      usernameError.textContent = '';
+      passwordError.textContent = '';
+
+      // Validate username
+      if (username === '') {
+        usernameError.textContent = 'Username tidak boleh kosong.';
+        isValid = false;
+      }
+
+      // Validate password
+      if (password === '') {
+        passwordError.textContent = 'Password tidak boleh kosong.';
+        isValid = false;
+      }
+
+      // Prevent form submission if not valid
+      if (!isValid) {
+        event.preventDefault();
+      }
+    });
+  </script>
 </body>
 
 </html>

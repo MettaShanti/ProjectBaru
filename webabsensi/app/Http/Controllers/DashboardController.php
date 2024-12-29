@@ -9,7 +9,9 @@ class DashboardController extends Controller
 {
     public function index(){
         //return view('dashboard');       
-        $absenreport = DB::select('SELECT Status, COUNT(*) AS jumlah FROM absenreports GROUP BY Status');
+        $absenreport = DB::select('SELECT absenreports.status, COUNT(*) as jumlah
+            FROM absenreports
+            GROUP BY absenreports.status');
         return view('dashboard')->with('absenreports', $absenreport);
     }
 }

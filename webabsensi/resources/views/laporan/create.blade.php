@@ -8,13 +8,13 @@
     @error('pegawai_id')
         <span class="text-danger">({{ $message }})</span>
     @enderror
-    <input type="numer" name="pegawai_id" id="" class="form-control mb-2">
+    <input type="number" name="pegawai_id" id="" class="form-control mb-2">
     
     Pin 
     @error('Pin')
         <span class="text-danger">({{ $message }})</span>
     @enderror
-    <input type="text" name="Pin" id="" class="form-control mb-2">
+    <input type="number" name="Pin" id="" class="form-control mb-2">
     
     Nip
     @error('Nip')

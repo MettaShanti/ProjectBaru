@@ -20,7 +20,7 @@
     @error('pin')
         <span class="text-danger">({{ $message }})</span>
     @enderror
-    <input type="numer" name="pin" id="" class="form-control mb-2">
+    <input type="number" name="pin" id="" class="form-control mb-2">
 
     <!-- Verifymode
     @error('verifymode')

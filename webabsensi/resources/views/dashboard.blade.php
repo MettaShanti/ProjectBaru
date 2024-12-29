@@ -1,5 +1,6 @@
-@extends('layouts.main')
+@extends('layouts.main') 
 @section('content')
+
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
@@ -27,13 +28,14 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        // Data yang diterima dari controller
+        // Data dari PHP ke dalam JavaScript
         const data = {
             hadir: 0,
             mangkir: 0,
             tidakHadir: 0,
         };
 
+        // Mengisi data berdasarkan hasil query
         @foreach ($absenreports as $row)
             @if ($row->status === 'Hadir')
                 data.hadir = {{ $row->jumlah }};
@@ -44,16 +46,17 @@
             @endif
         @endforeach
 
+        // Konfigurasi Highcharts
         Highcharts.chart('container', {
             chart: {
                 type: 'column'
             },
             title: {
-                text: 'Rekapitulasi Kehadiran Pegawai',
+                text: 'Rekapitulasi Kehadiran Pegawai - {{ \Carbon\Carbon::now()->translatedFormat("F Y") }}',
                 align: 'left'
             },
             subtitle: {
-                text: 'Source: Attendance System',
+                text: 'Sumber: Sistem Kehadiran',
                 align: 'left'
             },
             xAxis: {
@@ -63,11 +66,16 @@
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Jumlah Pegawai'
+                    text: 'Jumlah Kehadiran'
                 }
             },
             tooltip: {
-                valueSuffix: ' Pegawai'
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y} Pegawai</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
             },
             plotOptions: {
                 column: {
@@ -76,11 +84,10 @@
                 }
             },
             series: [{
-                name: 'Pegawai',
+                name: 'Jumlah Pegawai',
                 data: [data.hadir, data.mangkir, data.tidakHadir]
             }]
         });
     });
 </script>
 @endsection
-

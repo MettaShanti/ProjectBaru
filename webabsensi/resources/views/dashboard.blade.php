@@ -56,7 +56,7 @@
                 align: 'left'
             },
             subtitle: {
-                text: 'Sumber: Sistem Kehadiran',
+                text: '',
                 align: 'left'
             },
             xAxis: {

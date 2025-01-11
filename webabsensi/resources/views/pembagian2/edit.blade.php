@@ -11,7 +11,7 @@
     @enderror
     <input type="number" name="pembagian2_id" id="" class="form-control mb-2" value="{{ $pembagian2['pembagian2_id']}}">
     
-    Nama Departement 
+    Nama Departemen 
     @error('pembagian2_nama')
         <span class="text-danger">({{ $message }})</span>
     @enderror

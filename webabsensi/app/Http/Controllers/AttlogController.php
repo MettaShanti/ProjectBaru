@@ -36,31 +36,15 @@ class AttlogController extends Controller
 {
     // Validasi input, tanpa `sn` karena akan di-generate otomatis
     $input = $request->validate([
-        //"scan_date"   => "required", 
-        //"scan_date"   => "required|date", 
         "pin"         => "required",
-        // "verifymode"  => "required",
-        // "inoutmode"   => "required",
-        // "reserved"    => "required",
-        // "work_code"   => "required",
-        //"att_id"      => "required"
     ]);
-
-    // Generate nilai untuk `sn` dengan format ATL-att_id-scandate
-    //$generatedSn = 'ATL-' . $input['att_id'] . '-' . date('Ymd', strtotime($input['scan_date']));
-
     // Masukkan nilai `sn` yang sudah digenerate ke dalam data input
     $input['sn'] = '665544424';
-    //$input['sn'] = $generatedSn;
-
-    // verifymode yang diatas dihilangkan
     $input['verifymode'] = '0';
     $input['inoutmode'] = '0';
     $input['reserved'] = '1';
     $input['work_code'] = '0';
     $input['att_id'] = '1';
-    //$input['scan_date'] = date('Y-m-d H:i:s');
-    //$input['scan_date'] = date('Y-m-d h:i:s');
     $input['scan_date'] = now();
 
     // Simpan ke database

@@ -30,6 +30,11 @@ Route::resource('pembagian3', Pembagian3Controller::class)->middleware(['auth', 
 Route::resource('attlog', AttlogController::class)->middleware(['auth', 'verified', 'Ceklevel:user']);
 Route::resource('absenreport', AbsenreportController::class)->middleware(['auth', 'verified', 'Ceklevel:admin']);
 
+// check in
+Route::post('/attlog/checkin', [AttlogController::class, 'checkin'])->name('attlog.checkin');
+// check out
+Route::post('/attlog/checkout', [AttlogController::class, 'checkout'])->name('attlog.checkout');
+
 // filter tanggal 
 Route::post('/absenreport/filter', [AbsenreportController::class, 'filter'])->name('absenreport.filter');
 // cetak ke 1

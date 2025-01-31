@@ -4,7 +4,7 @@
     <h4>Absensi</h4>
     <div class="d-flex justify-content-between mb-3">
         <a href="{{ route('attlog.create') }}" class="btn btn-primary">Check In</a>
-        <a href="{{ route('attlog.create') }}" class="btn btn-secondary">Check Out</a>
+        <!-- <a href="{{ route('attlog.create') }}" class="btn btn-secondary">Check Out</a> -->
     </div>
     
     <table id="example" class="display nowrap table table-striped" style="width:100%">

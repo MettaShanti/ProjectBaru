@@ -34,9 +34,8 @@
     <table id="example" class="display nowrap" style="width:100%">
             <thead class="table-dark">
                 <tr>
-                    <th>ID Pegawai</th>
+                    <th>Nomor</th>
                     <th>Pin Pegawai</th>
-                    <th>Nip Pegawai</th>
                     <th>Nama Pegawai</th>
                     <th>Jabatan Pegawai</th>
                     <th>Departemen Pegawai</th>
@@ -44,8 +43,8 @@
                     <th>Tanggal</th>
                     <th>Bulan</th>
                     <th>Hari</th>
-                    <th>Scan Awal</th>
-                    <th>Scan Akhir</th>
+                    <th>Check In</th>
+                    <th>Check Out</th>
                     <th>Status</th>
                     <th>Jam Kerja</th>
                 </tr>
@@ -55,7 +54,6 @@
                     <tr>
                         <td>{{ $row->pegawai_id }}</td>
                         <td>{{ $row->Pin }}</td>
-                        <td>{{ $row->Nip }}</td>
                         <td>{{ $row->Nama }}</td>
                         <td>{{ $row->Jabatan }}</td>
                         <td>{{ $row->Departemen }}</td>

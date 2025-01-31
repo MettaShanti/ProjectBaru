@@ -11,7 +11,7 @@
         <thead>
             <tr>
                 <th>Pin</th>
-                <th>Scan Date</th>
+                <th>Date & Time</th>
             </tr>
         </thead>
         <tbody>
